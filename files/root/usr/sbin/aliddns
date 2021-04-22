@@ -16,9 +16,9 @@ uci_bool_by_name() {
 }
 
 intelnetip() {
-	tmp_ip=`curl -sL --connect-timeout 3 members.3322.org/dyndns/getip`
+	tmp_ip=`curl -sL --connect-timeout 3 ipv4.ip.sb`
 	if [ "Z$tmp_ip" == "Z" ]; then
-		tmp_ip=`curl -sL --connect-timeout 3   api-ipv4.ip.sb/ip`
+		tmp_ip=`curl -sL --connect-timeout 3 api-ipv4.ip.sb/ip`
 	fi
 	if [ "Z$tmp_ip" == "Z" ]; then
 		tmp_ip=`curl -sL --connect-timeout 3 v4.myip.la`
@@ -30,7 +30,7 @@ intelnetip() {
 }
 
 intelnetip6() {
-	tmp_ip=`curl -sL --connect-timeout 3   ipv6.whatismyip.akamai.com`
+	tmp_ip=`curl -sL --connect-timeout 3 ipv6.ip.sb`
 	if [ "Z$tmp_ip" == "Z" ]; then
 		tmp_ip=`curl -sL --connect-timeout 3 speed.neu6.edu.cn/getIP.php`
 	fi
@@ -38,7 +38,7 @@ intelnetip6() {
 		tmp_ip=`curl -sL --connect-timeout 3 v6.ident.me`
 	fi
 	if [ "Z$tmp_ip" == "Z" ]; then
-		tmp_ip=`curl -sL --connect-timeout 3 api-ipv6.ip.sb/ip`
+		tmp_ip=`curl -sL --connect-timeout 3 ipv6.whatismyip.akamai.com`
 	fi
 	echo -n $tmp_ip
 }
